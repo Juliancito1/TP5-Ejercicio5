@@ -11,11 +11,40 @@ main{
     font-family: 'Roboto Mono', monospace;
 }
 
-.crono{
-    height: 300px;
+@media all and (max-width:767px)
+{
+    .crono{
+        height: 200px;
+    }
+    
+    .tiempo{
+        margin-top: 100px;
+        font-size: 40px;
+    }
+    .btn{
+        font-size: 15px;
+    }
 }
 
-.tiempo{
-    margin-top: 250px;
-    font-size: 75px;
+@media all and (min-width:768px) and (max-width:991px)
+{
+    .crono{
+        height: 300px;
+    }
+    
+    .tiempo{
+        margin-top: 250px;
+        font-size: 75px;
+    }
+}
+@media all and (min-width:992px)
+{
+    .crono{
+        height: 300px;
+    }
+    
+    .tiempo{
+        margin-top: 250px;
+        font-size: 75px;
+    }
 }

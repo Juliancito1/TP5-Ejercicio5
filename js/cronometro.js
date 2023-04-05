@@ -1,91 +1,55 @@
-const lugarhoras = document.querySelector('.horas');
-const lugarminutos = document.querySelector('.minutos');
-const lugarsegundos = document.querySelector('.segundos');
-const btnIniciar = document.getElementById('iniciar');
-const btnReiniciar = document.getElementById('reiniciar')
-btnIniciar.addEventListener('click',accion);
-btnReiniciar.addEventListener('click',reinicio)
+const btnIniciar = document.getElementById("iniciar");
+const btnReiniciar = document.getElementById("reiniciar");
+const btnParar = document.getElementById("parar");
+const lugarhoras = document.getElementById("horas");
+const lugarminutos = document.getElementById("minutos");
+const lugarsegundos = document.getElementById("segundos");
+
 let horas = 0;
+let aux;
 let minutos = 0;
 let segundos = 0;
-
-let comenzar = null;
-
-function tiempo(){
-    lugarhoras.innerHTML = horas + ':'
-    lugarminutos.innerHTML = minutos + ':'
-    lugarsegundos.innerHTML =  segundos
+btnIniciar.addEventListener("click", empezar);
+btnReiniciar.addEventListener("click", reiniciar);
+btnParar.addEventListener("click", detener);
+btnReiniciar.disabled = true;
+btnParar.disabled = true;
+function empezar() {
+  aux = setInterval(cronometro, 15);
+  btnReiniciar.disabled = false;
+  btnParar.disabled = false;
 }
 
-function reinicio(){
-    horas = 0;
-    minutos = 0;
+function cronometro() {
+  segundos++;
+
+  if (segundos === 60) {
     segundos = 0;
-    tiempo()
+    minutos++;
+  }
+
+  if (minutos === 60) {
+    minutos = 0;
+    horas++;
+  }
+
+  lugarhoras.innerHTML = String(horas).padStart(2, "0") + ":";
+  lugarminutos.innerHTML = String(minutos).padStart(2, "0") + ":";
+  lugarsegundos.innerHTML = String(segundos).padStart(2, "0");
 }
 
-
-function accion(){
-    if(comenzar)
-    {
-        parar()
-        btnReiniciar.disabled = false
-    }
-    else{
-        iniciar()
-        btnReiniciar.disabled = true
-    }
+function detener() {
+  clearInterval(aux);
+  btnParar.disabled = true;
 }
 
-function iniciar(){
-
-    function aumentarHoras(){
-        if(horas < 99)
-        {
-            horas++;
-        }
-    }
-    function aumentarMinutos(){
-        if(minutos === 59)
-        {
-            minutos = 0;
-            aumentarHoras();
-        }
-        else{
-            minutos++; 
-        }
-    }
-
-    const incrementar = () => {
-    if(segundos === 99){
-        segundos = 0;
-        aumentarMinutos();
-    }
-    else{
-        segundos++;
-    }
-        tiempo()
-    }
-    comenzar = setInterval(incrementar,15)
-    btnIniciar.innerHTML = "Parar"
-    btnIniciar.className = "btn btn-warning"
-   
+function reiniciar() {
+  detener();
+  horas = 0;
+  minutos = 0;
+  segundos = 0;
+  lugarhoras.innerHTML = String(horas).padStart(2, "0") + ":";
+  lugarminutos.innerHTML = String(minutos).padStart(2, "0") + ":";
+  lugarsegundos.innerHTML = String(segundos).padStart(2, "0");
+  btnReiniciar.disabled = true;
 }
-
-function parar(){
-    clearInterval(comenzar);
-    comenzar = null
-    btnIniciar.innerHTML = "Iniciar"
-    btnIniciar.className = "btn btn-primary"
-}
-
-
-   
-    
-
-
-
-
-
-
-

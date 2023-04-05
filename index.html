@@ -1,40 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Julian Martin"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Julian Martin" />
     <meta
       name="description"
       content="Pagina web diseñada para la utilización de un cronometro"
     />
-    <meta name="keywords" content="web, cronometro, tiempo"/>
+    <meta name="keywords" content="web, cronometro, tiempo" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="./css/style.css" />
     <title>TP5 Ejercicio 5 - Cronometro</title>
-</head>
-<body>
+  </head>
+  <body>
     <main class="container">
-        <section class="tiempo">
-            <div class="text-light crono text-center">
-                <p>
-                    <span class="horas">00:</span><span class="minutos">00:</span><span class="segundos">00</span>
-                </p>
-                <button class="btn btn-primary" id="iniciar">Iniciar</button>
-                <button class="btn btn-danger" id="reiniciar">Reiniciar</button>
-            </div>
-        </section>
+      <section class="tiempo">
+        <div class="text-light crono text-center">
+          <h2>Cronometro</h2>
+          <p>
+            <span id="horas">00:</span><span id="minutos">00:</span
+            ><span id="segundos">00</span>
+          </p>
+          <button class="btn btn-primary" id="iniciar">Iniciar</button>
+          <button class="btn btn-warning" id="parar">Parar</button>
+          <button class="btn btn-danger" id="reiniciar">Reiniciar</button>
+        </div>
+      </section>
     </main>
     <footer class="bg-black text-light py-3 text-center">
-        <p>&copy; Todos los derechos reservados</p>
-      </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"crossorigin="anonymous"></script>
-  <script src="js/cronometro.js"></script>
-</body>
+      <p>&copy; Todos los derechos reservados</p>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/cronometro.js"></script>
+  </body>
 </html>

@@ -32,6 +32,9 @@ main{
         height: 300px;
     }
     
+    .btn{
+        font-size:30px
+    }
     .tiempo{
         margin-top: 250px;
         font-size: 75px;
